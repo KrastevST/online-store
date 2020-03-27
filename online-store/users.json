@@ -21,5 +21,15 @@
     "email": "aaa",
     "password": "aa",
     "id": "d5924fb3"
+  },
+  {
+    "email": "legit",
+    "password": "legit",
+    "id": "4c88b7cb"
+  },
+  {
+    "email": "hash",
+    "password": "da49c1ca9d183e989545738b0418f93b9b170290a0632f99efed6f62e032c94c75abd77eb8979e02a64066cc4e3d6c1c12f84a4618c4d02c3ac6dd46ec26f4fd.6c61f09b3012bd6f",
+    "id": "b476027d"
   }
 ]
