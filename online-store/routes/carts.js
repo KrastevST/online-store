@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/cart/products', async (req, res) => {
   let cart;
   if (!req.session.cartId) {
-    cart =  await cartsRepo.create({ items: [] });
+    cart = await cartsRepo.create({ items: [] });
     req.session.cartId = cart.id;
   } else {
     cart = await cartsRepo.getOne(req.session.cartId);
@@ -41,6 +41,17 @@ router.get('/cart', async (req, res) => {
   }
 
   res.send(cartShowTemplate({ items: cart.items }));
+});
+
+router.post('/cart/products/delete', async (req, res) => {
+  const { itemId } = req.body;
+  const cart = await cartsRepo.getOne(req.session.cartId);
+
+  const items = cart.items.filter(item => item.id !== itemId);
+
+  await cartsRepo.update(req.session.cartId, { items });
+
+  res.redirect('/cart');
 });
 
 module.exports = router;
