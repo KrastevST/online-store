@@ -15,7 +15,8 @@ module.exports = ({ products }) => {
           </a>
         </td>
         <td>
-          <form method="POST" action="/admin/products/${product.id}/delete">
+          <form action="/admin/products/delete" method="POST" >
+            <input hidden value="${product.id} name="productId" />
             <button class="button is-danger">Delete</button>
           </form>
         </td>

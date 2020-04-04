@@ -70,9 +70,8 @@ router.post('/admin/products/:id/edit',
   }
 );
 
-router.post('admin/products/:id/delete', requireAuth, async (req, res) => {
-  await productsRepo.delete(req.params.id);
-
+router.post('admin/products/delete', requireAuth, async (req, res) => {
+  await productsRepo.delete(req.body.productId);
   res.redirect('/admin/products');
 });
 
